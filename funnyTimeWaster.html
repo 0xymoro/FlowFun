@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Time Waster</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visibility/1.0.11/jquery-visibility.js"></script>
+    <script src="Pause.js"></script>
+
+
+    <style>
+        body{
+            margin: 0;
+            background: -webkit-gradient(linear, left top, left bottom, from(white), to(#d5fff9)) fixed;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+        .content{
+            position: absolute;
+            height: 200px;
+            width: 300px;
+            background: lightgreen;
+            top: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="content" id="first">
+            <p>One</p>
+        </div>
+        <div class="content" id="second">
+            <p>Two</p>
+        </div>
+        <div class="content" id="third">
+            <p>Three</p>
+        </div>
+        <div class="content" id="fourth">
+            <p>Four</p>
+        </div>
+        <div class="content" id="fifth">
+            <p>Five</p>
+        </div>
+        <div class="content" id="sixth">
+            <p>Six</p>
+        </div>
+        <div class="content" id="seventh">
+            <p>Seven</p>
+        </div>
+        <div class="content" id="eighth">
+            <p>Eight</p>
+        </div>
+        <div class="content" id="ninth">
+            <p>Nine</p>
+        </div>
+        <div class="content" id="tenth">
+            <p>Ten</p>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        //Minor bug: goes faster upon resuming tab
+        $(document).ready(function(){
+            var elems = document.getElementsByClassName("content");
+            var elemTopCoords = [];
+            function loop(elem, id) {
+                //TODO: GET NEW JSON and RESIZE DIV
+                //set position before animation
+                $(elem).css({
+                    top: $("#container").height(),
+                    left: ($(window).width() - $(elem).width()) * Math.random(),
+                    //left: $(window).width() * 1 / 6 + Math.random() * ($(window).width() - $(elem).width()) * 2 / 3,
+                });
+                elemTopCoords[id] = $(elem).offset().top;
+                if (collide(elem, id)){
+                    //move it out of the way first before trying to display again
+                    $(elem).css({
+                        left: -$(elem).width() * 2,
+                    })
+                    setTimeout(function() {
+                        loop(elem, id);
+                    }, 2000)
+                }
+                else {
+                    //animate
+                    $(elem).stop(true, true).animate({top: "-=" + ($("#container").height() + $(elem).height())}, {
+                        duration:30000,
+                        easing: "linear",
+                        step: function(){
+                            //records value
+                            elemTopCoords[id] = $(elem).offset().top;
+                        },
+                        complete: function(){
+                            //records value
+                            elemTopCoords[id] = $(elem).offset().top;
+                            //delay respawn so every arrangement is new
+                            setTimeout(function () {
+                                loop(elem, id);
+                            }, Math.random() * 2000 + 1000)
+                        }
+                    });
+
+
+                }
+            }
+
+            function collide(elem, id){
+                if ($(elem).offset().left == 0) return false;
+                for (var i = 0; i < elems.length; i ++){
+                    if (elem !== elems[i]){
+                        //adds padding for minimum space between divs
+                        var padding = 30;
+                        var x1 = $(elem).offset().left - padding/2;
+                        var y1 = elemTopCoords[id] - padding/2;
+                        var h1 = $(elem).outerHeight(true);
+                        var w1 = $(elem).outerWidth(true);
+                        var yEnd1 = y1 + h1 + padding/2;
+                        var xEnd1 = x1 + w1 + padding/2;
+                        var x2 = $(elems[i]).offset().left;
+                        var y2 = elemTopCoords[i];
+                        var h2 = $(elems[i]).outerHeight(true);
+                        var w2 = $(elems[i]).outerWidth(true);
+                        var yEnd2 = y2 + h2;
+                        var xEnd2 = x2 + w2;
+
+                        if (((x1 <= x2 && x2 <= xEnd1) || (x1 <= xEnd2 && xEnd2 <= xEnd1)) &&
+                            ((y1 <= y2 && y2 <= yEnd1) || (y1 <= yEnd2 && yEnd2 <= yEnd1))){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+
+
+            function initiate() {
+                loop(elems[0], 0);
+                (function iterate(i) {
+                    setTimeout(function () {
+                        loop(elems[i], i);
+                        if (--i) iterate(i);
+                    }, Math.random() * 2000 + 1000)
+                })(elems.length - 1);
+            }
+
+
+            //Pause/resume animation on page visibility
+            $(document).on({
+                'hide': function() {
+                    for (var i = 0; i < elems.length; i ++){
+                        $(elems[i]).pause();
+                    }
+                },
+                'show': function() {
+                    for (var i = 0; i < elems.length; i ++){
+                        $(elems[i]).resume();
+                    }
+                }
+            });
+
+            initiate();
+        })
+
+    </script>
+</body>
+</html>
