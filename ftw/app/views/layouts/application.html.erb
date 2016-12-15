@@ -23,7 +23,7 @@
         }
         .content{
             position: absolute;
-            height: 200px;
+            height: 400px;
             width: 300px;
             background: lightgreen;
             top: 100%;
@@ -87,7 +87,7 @@
                 else {
                     //animate
                     $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).height())}, {
-                        duration:30000,
+                        duration:($(window).height()+$(elem).height())*21,
                         easing: "linear",
                         step: function(){
                             //records value
