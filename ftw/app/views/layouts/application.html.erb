@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visibility/1.0.11/jquery-visibility.js"></script>
     <style>
         body{
+            padding: 0;
             margin: 0;
             background: -webkit-gradient(linear, left top, left bottom, from(white), to(#d5fff9)) fixed;
         }
@@ -23,10 +24,13 @@
         }
         .content{
             position: absolute;
-            height: 400px;
+            height: auto;
             width: 300px;
             background: lightgreen;
             top: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
         }
         .thumbnail{
           .caption h3{
@@ -86,7 +90,7 @@
                 else {
                     //animate
                     $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).height())}, {
-                        duration:($(window).height()+$(elem).height())*21,
+                        duration:($(window).height()+$(elem).height())*5,
                         easing: "linear",
                         step: function(){
                             //records value
