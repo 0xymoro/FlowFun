@@ -36,20 +36,16 @@ class PostsWrapper extends React.Component {
 
   render() {
     return (
-
-
       <div>
-        <p>testing</p>
 
-
-
+        {/*this block of code spawns the posts*/}
         {this.state.posts.map((post) => {
           return (<Post post={post} key={post.id}></Post>);
         })}
 
-        <div className="load-more">
-          <a className="btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>Load more</a>
-        </div>
+        {/*<div className="load-more">
+          <a className="btn btn-primary btn-block" onClick=this.loadMore.bind(this)>Load more</a>
+        </div>*/}
       </div>
     );
   }
