@@ -41,8 +41,8 @@ class PostsWrapper extends React.Component {
       <div>
         <p>testing</p>
 
-        
-        
+
+
         {this.state.posts.map((post) => {
           return (<Post post={post} key={post.id}></Post>);
         })}
