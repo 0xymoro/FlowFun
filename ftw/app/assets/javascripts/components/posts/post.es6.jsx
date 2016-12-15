@@ -48,9 +48,9 @@ class Post extends React.Component {
       //   {this.imageOrGif()}
       // </div>
       <div className="thumbnail content">
-           <h3 className={this.props.detail ? '' : 'title-post'}>
+           <h5 className={this.props.detail ? '' : 'title-post'}>
              {this.titlePost()}
-           </h3>
+           </h5>
            {this.imageOrGif()}
       </div>
     );
