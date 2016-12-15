@@ -22,8 +22,8 @@
         }
         .content{
             position: absolute;
-            height: 450px;
-            width: 350px;
+            height: 200px;
+            width: 300px;
             background: lightgreen;
             top: 100%;
         }
@@ -78,6 +78,7 @@
                 $(elem).css({
                     top: $("#container").height(),
                     left: ($(window).width() - $(elem).width()) * Math.random(),
+                    //left: $(window).width() * 1 / 6 + Math.random() * ($(window).width() - $(elem).width()) * 2 / 3,
                 });
                 elemTopCoords[id] = $(elem).offset().top;
                 if (collide(elem, id)){
@@ -87,7 +88,7 @@
                     })
                     setTimeout(function() {
                         loop(elem, id);
-                    }, 1500)
+                    }, 2000)
                 }
                 else {
                     //animate
@@ -117,13 +118,13 @@
                 for (var i = 0; i < elems.length; i ++){
                     if (elem !== elems[i]){
                         //adds padding for minimum space between divs
-                        var padding = 60;
+                        var padding = 30;
                         var x1 = $(elem).offset().left - padding/2;
                         var y1 = elemTopCoords[id] - padding/2;
                         var h1 = $(elem).outerHeight(true);
                         var w1 = $(elem).outerWidth(true);
-                        var yEnd1 = y1 + h1 + padding;
-                        var xEnd1 = x1 + w1 + padding;
+                        var yEnd1 = y1 + h1 + padding/2;
+                        var xEnd1 = x1 + w1 + padding/2;
                         var x2 = $(elems[i]).offset().left;
                         var y2 = elemTopCoords[i];
                         var h2 = $(elems[i]).outerHeight(true);
@@ -172,5 +173,4 @@
 
     </script>
 </body>
-</html>
 </html>

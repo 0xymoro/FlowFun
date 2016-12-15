@@ -38,14 +38,20 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div className="thumbnail">
-        <div className="caption">
-          <h3 className={this.props.detail ? '' : 'title-post'}>
-            {this.titlePost()}
-          </h3>
-        </div>
-
-        {this.imageOrGif()}
+      // <div className="thumbnail">
+      //   <div className="caption">
+      //     <h3 className={this.props.detail ? '' : 'title-post'}>
+      //       {this.titlePost()}
+      //     </h3>
+      //   </div>
+      //
+      //   {this.imageOrGif()}
+      // </div>
+      <div className="content">
+           <h3 className={this.props.detail ? '' : 'title-post'}>
+             {this.titlePost()}
+           </h3>
+           {this.imageOrGif()}
       </div>
     );
   }
