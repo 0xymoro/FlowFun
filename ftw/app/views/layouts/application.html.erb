@@ -109,7 +109,6 @@
 
                 }
             }
-            //FIX COLLISIONS!
             function collide(elem, id){
                 if ($(elem).offset().left == 0) {
                     return false;
@@ -124,16 +123,13 @@
                         var w1 = $(elem).outerWidth(true);
                         var yEnd1 = y1 + h1 + padding;
                         var xEnd1 = x1 + w1 + padding;
-                        //console.log (x1, y1, h1, w1, xEnd1, yEnd1);
                         var x2 = $(elems[i]).offset().left;
                         var y2 = elemTopCoords[i];
                         var h2 = $(elems[i]).outerHeight(true);
                         var w2 = $(elems[i]).outerWidth(true);
                         var yEnd2 = y2 + h2;
                         var xEnd2 = x2 + w2;
-                        console.log(x2, y2, h2, w2, yEnd2, xEnd2);
 
-                        //collision checking for all cases
                         if (x1 <= xEnd2 && xEnd1 >= x2 && 
                             y1 <= yEnd2 && yEnd1 >= y2){
                             return true;
