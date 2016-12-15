@@ -90,7 +90,7 @@
                 else {
                     //animate
                     $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).height())}, {
-                        duration:($(window).height()+$(elem).height())*5,
+                        duration:($(window).height()+$(elem).height())*20,
                         easing: "linear",
                         step: function(){
                             //records value
@@ -109,9 +109,10 @@
 
                 }
             }
-
             function collide(elem, id){
-                if ($(elem).offset().left == 0) return false;
+                if ($(elem).offset().left == 0) {
+                    return false;
+                }
                 for (var i = 0; i < elems.length; i ++){
                     if (elem !== elems[i]){
                         //adds padding for minimum space between divs
@@ -120,8 +121,8 @@
                         var y1 = elemTopCoords[id] - padding/2;
                         var h1 = $(elem).outerHeight(true);
                         var w1 = $(elem).outerWidth(true);
-                        var yEnd1 = y1 + h1 + padding/2;
-                        var xEnd1 = x1 + w1 + padding/2;
+                        var yEnd1 = y1 + h1 + padding;
+                        var xEnd1 = x1 + w1 + padding;
                         var x2 = $(elems[i]).offset().left;
                         var y2 = elemTopCoords[i];
                         var h2 = $(elems[i]).outerHeight(true);
@@ -129,8 +130,8 @@
                         var yEnd2 = y2 + h2;
                         var xEnd2 = x2 + w2;
 
-                        if (((x1 <= x2 && x2 <= xEnd1) || (x1 <= xEnd2 && xEnd2 <= xEnd1)) &&
-                            ((y1 <= y2 && y2 <= yEnd1) || (y1 <= yEnd2 && yEnd2 <= yEnd1))){
+                        if (x1 <= xEnd2 && xEnd1 >= x2 && 
+                            y1 <= yEnd2 && yEnd1 >= y2){
                             return true;
                         }
                     }

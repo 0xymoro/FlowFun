@@ -21,6 +21,7 @@ class PostsWrapper extends React.Component {
         })
       }
     })
+    console.log("success");
   }
 
   paginationURL(){
@@ -42,10 +43,11 @@ class PostsWrapper extends React.Component {
         {this.state.posts.map((post) => {
           return (<Post post={post} key={post.id}></Post>);
         })}
+        {this.loadMore.bind(this)}
 
-        {/*<div className="load-more">
-          <a className="btn btn-primary btn-block" onClick=this.loadMore.bind(this)>Load more</a>
-        </div>*/}
+        <div className="load-more">
+          <a className="btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>Load more</a>
+        </div>
       </div>
     );
   }
