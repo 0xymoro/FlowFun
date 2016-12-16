@@ -25,11 +25,11 @@
         .content{
             position: absolute;
             height: auto;
-            width: 300px;
-            background: lightgreen;
+            width: 350px;
+            border-radius: 20px;
             top: 100%;
             margin: 0;
-            padding: 0;
+            padding: 15px;
             border: 0;
         }
         .thumbnail{
@@ -67,15 +67,19 @@
     </div>
 
     <script>
-        //Minor bug: goes faster upon resuming tab
+        const shadowHeight = 20;
         window.onload = function(){
             var elems = document.getElementsByClassName("content");
             var elemTopCoords = [];
             function loop(elem, id) {
+                var r = Math.floor(Math.random()*128)+128;
+                var g = Math.floor(Math.random()*128)+128;
+                var b = Math.floor(Math.random()*128)+128;
+                console.log(r);
                 //set position before animation
                 $(elem).css({
-                    top: $("#containsfloats").height(),
-                    left: ($(window).width() - $(elem).width()) * Math.random(),
+                    top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
+                    left: ($(window).width() - $(elem).outerWidth(true)) * Math.random()
                 });
                 elemTopCoords[id] = $(elem).offset().top;
                 if (collide(elem, id)){
@@ -88,8 +92,13 @@
                     }, 2000)
                 }
                 else {
+                    $(elem).css({
+                        'background': 'rgb('+r+', '+g+', '+b+')',
+                        '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgb('+r+', '+g+', '+b+')',
+                        'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgb('+r+', '+g+', '+b+')',
+                    });
                     //animate
-                    $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).height())}, {
+                    $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
                         duration:($(window).height()+$(elem).height())*20,
                         easing: "linear",
                         step: function(){
@@ -116,7 +125,7 @@
                 for (var i = 0; i < elems.length; i ++){
                     if (elem !== elems[i]){
                         //adds padding for minimum space between divs
-                        var padding = 60;
+                        var padding = 60 + 2*shadowHeight;
                         var x1 = $(elem).offset().left - padding/2;
                         var y1 = elemTopCoords[id] - padding/2;
                         var h1 = $(elem).outerHeight(true);
@@ -206,6 +215,7 @@
                         // fetch data
                         var data = anims[this[pauseId]];
                         if (data && data.run) {
+                            //data.done = now() - data.start;
                             data.done += now() - data.start;
                             if (data.done > data.opt.duration) {
                                 // remove stale entry
