@@ -68,7 +68,7 @@
 
     <script>
         //Minor bug: goes faster upon resuming tab
-        $(document).ready(function(){
+        window.onload = function(){
             var elems = document.getElementsByClassName("content");
             var elemTopCoords = [];
             function loop(elem, id) {
@@ -239,7 +239,7 @@
             })();
 
             initiate();
-        })
+        }
 
     </script>
   </body>
