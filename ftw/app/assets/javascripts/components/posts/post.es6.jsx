@@ -5,12 +5,16 @@ class Post extends React.Component {
 
   titlePost(){
     let titlePost = (
+      <h6><strong>{this.props.post.title}</strong></h6>
+
+      /* For links on the title; make the links be clickable throughout content box
       <a
         href={this.redirectToShow(this.props.post.id)}
         className="post-title"
         title={this.props.post.title}>
         {this.props.post.title}
       </a>
+      */
     )
 
     if (this.props.detail) {

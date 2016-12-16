@@ -29,7 +29,7 @@
             border-radius: 20px;
             top: 100%;
             margin: 0;
-            padding: 15px;
+            padding: 0px 20px 20px 20px;
             border: 0;
         }
         .thumbnail{
@@ -75,11 +75,10 @@
                 var r = Math.floor(Math.random()*128)+128;
                 var g = Math.floor(Math.random()*128)+128;
                 var b = Math.floor(Math.random()*128)+128;
-                console.log(r);
                 //set position before animation
                 $(elem).css({
                     top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
-                    left: ($(window).width() - $(elem).outerWidth(true)) * Math.random()
+                    left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
                 });
                 elemTopCoords[id] = $(elem).offset().top;
                 if (collide(elem, id)){
@@ -94,9 +93,9 @@
                 else {
                     //add box shadow
                     $(elem).css({
-                        'background': 'rgb('+r+', '+g+', '+b+')',
-                        '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgb('+r+', '+g+', '+b+')',
-                        'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgb('+r+', '+g+', '+b+')',
+                        'background': 'rgba('+r+', '+g+', '+b+', 0.5)',
+                        '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
+                        'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
                     });
                     //animate
                     $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
