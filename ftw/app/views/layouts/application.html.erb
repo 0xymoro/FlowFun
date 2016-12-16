@@ -92,6 +92,7 @@
                     }, 2000)
                 }
                 else {
+                    //add box shadow
                     $(elem).css({
                         'background': 'rgb('+r+', '+g+', '+b+')',
                         '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgb('+r+', '+g+', '+b+')',
@@ -125,7 +126,7 @@
                 for (var i = 0; i < elems.length; i ++){
                     if (elem !== elems[i]){
                         //adds padding for minimum space between divs
-                        var padding = 60 + 2*shadowHeight;
+                        var padding = 60 + 4*shadowHeight;
                         var x1 = $(elem).offset().left - padding/2;
                         var y1 = elemTopCoords[id] - padding/2;
                         var h1 = $(elem).outerHeight(true);
