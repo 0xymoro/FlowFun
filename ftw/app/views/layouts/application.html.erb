@@ -67,7 +67,16 @@
     </div>
 
     <script>
+        //TODO find PostsWrapper name and call loadMore in animation complete:
+        //Make React Hello World *
+        //Understand and make JSX files
+        //Get the DOM element as a var 
+        //Render the file inside the html
+        //Transfer to here
+
+        //Temporary fix: global variable
         const shadowHeight = 20;
+        var apiLoadMore;
         window.onload = function(){
             var elems = document.getElementsByClassName("content");
             var elemTopCoords = [];
@@ -99,13 +108,16 @@
                     });
                     //animate
                     $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
-                        duration:($(window).height()+$(elem).height())*20,
+                        duration:($(window).height()+$(elem).height())*5,
                         easing: "linear",
                         step: function(){
                             //records value
                             elemTopCoords[id] = $(elem).offset().top;
                         },
                         complete: function(){
+                            //Temporary fix: global variable
+                            apiLoadMore.loadMore();
+         
                             //records value
                             elemTopCoords[id] = $(elem).offset().top;
                             //delay respawn so every arrangement is new
@@ -149,7 +161,6 @@
             }
 
 
-
             function initiate() {
                 loop(elems[0], 0);
                 (function iterate(i) {
@@ -161,22 +172,33 @@
             }
 
 
+
+            function pauseAll(){
+                for (var i = 0; i < elems.length; i ++){
+                    $(elems[i]).pause();
+                }
+            }
+
+            function resumeAll(){
+                for (var i = 0; i < elems.length; i ++){
+                    $(elems[i]).resume();
+                }
+            }
+
             //Pause/resume animation on page visibility
             $(document).on({
                 'hide': function() {
-                    console.log("Paused");
-                    for (var i = 0; i < elems.length; i ++){
-                        $(elems[i]).pause();
-                    }
+                    pauseAll();
                 },
                 'show': function() {
-                    for (var i = 0; i < elems.length; i ++){
-                        $(elems[i]).resume();
-                    }
+                    resumeAll();
                 }
             });
 
-            //Pause.js
+            //Pause.js                                   |
+            //TODO fix moving faster on pause (solution? v)
+            //http://stackoverflow.com/questions/6508796/jquery-pause-resume-on-hover
+            //later make display nicer and have pause/highlight
             (function() {
                 var $ = jQuery,
                     pauseId = 'jQuery.pause',
@@ -215,8 +237,7 @@
                         // fetch data
                         var data = anims[this[pauseId]];
                         if (data && data.run) {
-                            //data.done = now() - data.start;
-                            data.done += now() - data.start;
+                            data.done = now() - data.start;
                             if (data.done > data.opt.duration) {
                                 // remove stale entry
                                 delete anims[this[pauseId]];

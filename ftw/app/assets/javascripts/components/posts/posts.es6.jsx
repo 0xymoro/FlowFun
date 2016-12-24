@@ -1,6 +1,8 @@
 class PostsWrapper extends React.Component {
   constructor(props){
     super(props);
+    console.log("PostWrapper Called");
+    apiLoadMore = this;
 
     this.state = {
       posts: props.posts
@@ -45,12 +47,21 @@ class PostsWrapper extends React.Component {
         })}
         {this.loadMore.bind(this)}
 
+
         <div className="load-more">
           <a className="btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>Load more</a>
         </div>
       </div>
     );
   }
+
+  //
+  test(){
+    alert("LKAJSLDKJ");
+    console.log("LSKDJFLKSDJF");
+  }
+  //
+
 }
 
 PostsWrapper.defaultProps = {
