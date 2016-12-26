@@ -1,13 +1,19 @@
 class PostsWrapper extends React.Component {
   constructor(props){
     super(props);
-    console.log("PostWrapper Called");
     apiLoadMore = this;
 
     this.state = {
       posts: props.posts
     };
   }
+
+
+  {/*TODO: change the loadMore for how many gets loaded and how it's displayed*/}
+
+
+
+
   loadMore(){
     let posts = this.state.posts;
     let lastPost = posts[posts.length - 1];
@@ -19,7 +25,7 @@ class PostsWrapper extends React.Component {
       dataType: 'json',
       success: (response) => {
         this.setState({
-          posts: this.state.posts.concat(response.posts)
+          posts: response.posts
         })
       }
     })
@@ -34,7 +40,7 @@ class PostsWrapper extends React.Component {
       return `/${section}/${type}`
     }
 
-    return '/hot'
+    return 'funny/hot'
   }
 
   render() {
@@ -55,17 +61,12 @@ class PostsWrapper extends React.Component {
     );
   }
 
-  //
-  test(){
-    alert("LKAJSLDKJ");
-    console.log("LSKDJFLKSDJF");
-  }
-  //
+
 
 }
 
 PostsWrapper.defaultProps = {
-  section: 'hot'
+  section: 'funny/hot'
 }
 
 PostsWrapper.propTypes = {
