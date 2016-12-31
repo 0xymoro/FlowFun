@@ -1,3 +1,4 @@
+
 class PostsWrapper extends React.Component {
   constructor(props){
     super(props);
@@ -7,9 +8,6 @@ class PostsWrapper extends React.Component {
       posts: props.posts
     };
   }
-
-
-  {/*TODO: change the loadMore for how many gets loaded and how it's displayed*/}
 
 
 
@@ -25,8 +23,9 @@ class PostsWrapper extends React.Component {
       dataType: 'json',
       success: (response) => {
         this.setState({
-          posts: response.posts
+          posts: this.state.posts.concat(response.posts)
         })
+        moveNewDivs();
       }
     })
     console.log("success");
