@@ -71,7 +71,8 @@
         var apiLoadMore;
         var elems;
         var elemTopCoords = [];
-        function loop(elem, id) {
+        var completedCount = 0;
+        function loop(elem) {
             var r = Math.floor(Math.random()*128)+128;
             var g = Math.floor(Math.random()*128)+128;
             var b = Math.floor(Math.random()*128)+128;
@@ -80,15 +81,16 @@
                 top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
                 left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
             });
-            elemTopCoords[id] = $(elem).offset().top;
-            if (collide(elem, id)){
+            //Problem with undefined elem
+            elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+            if (collide(elem)){
                 //move it out of the way first before trying to display again
                 $(elem).css({
                     left: -$(elem).width() * 2,
                 })
                 setTimeout(function() {
-                    loop(elem, id);
-                }, 2000)
+                    loop(elem);
+                }, Math.random() * 1000)
             }
             else {
                 //add box shadow
@@ -103,23 +105,24 @@
                     easing: "linear",
                     step: function(){
                         //records value
-                        elemTopCoords[id] = $(elem).offset().top;
+                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
                     },
-                    complete: function(){
-                        // if (count >= 10){
-                        //     apiLoadMore.loadMore();
-                        //     count = 0;
-                        // }
-                        // else{
-                        //     count ++;
-                        // }
-     
+                    complete: function(){          
                         //records value
-                        elemTopCoords[id] = $(elem).offset().top;
-                        //delay respawn so every arrangement is new
-                        setTimeout(function () {
-                            loop(elem, id);
-                        }, Math.random() * 2000 + 1000)
+                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+                        $(elem).css({
+                            left: -$(elem).width() * 2,
+                        })
+
+                        //delete element and its div, update elemTopCoords
+                        //elemTopCoords.splice(elems.indexOf(elem), 1); prob colliding?
+                        //$(elem).remove();
+
+                        completedCount ++;
+                        //if completed is 6 (10-4) less than total posts, loadMore
+                        if (completedCount % 10 == 4){
+                            apiLoadMore.loadMore();
+                        }
                     }
                 });
 
@@ -127,44 +130,44 @@
             }
         }
 
-        //initiate originals
-        function initiate() {
-            //
-            loop(elems[0], 0);
-            (function iterate(i) {
-                setTimeout(function () {
-                    loop(elems[i], i);
-                    if (--i) iterate(i);
-                }, Math.random() * 2000 + 1000)
-            })(elems.length - 1);
+        //from Jason Arnello on TeamTreehouse
+        function objToArray (obj) {
+            var values = [];
+
+            obj.each (function() {
+                values.push($(this));
+            });
+
+            return values;
         }
 
         //adding new divs to existing moving ones on loadMore
         //note: 9gag loadmore always gets 10 more posts
         function moveNewDivs(){
-            elems = document.getElementsByClassName("content"); 
-            for (var i = elems.length - 10; i < elems.length; i ++){
+            //elems = document.getElementsByClassName("content"); 
+            elems = objToArray($(".content"));
+            (function iterate(i) {
                 console.log(i);
-                loop(elems[i], i);
-            }
+                setTimeout(function () {
+                    loop(elems[i]);
+                    if (i < elems.length-1) iterate(i+1);
+                }, Math.random() * 1000)
+            })(elems.length - 10);
 
         }
 
 
-        function collide(elem, id){
-            if ($(elem).offset().left == 0) {
-                return false;
-            }
+        function collide(elem){
+            //adds padding for minimum space between divs
+            var padding = 60 + 4*shadowHeight;
+            var x1 = $(elem).offset().left - padding/2;
+            var y1 = elemTopCoords[elems.indexOf(elem)] - padding/2;
+            var h1 = $(elem).outerHeight(true);
+            var w1 = $(elem).outerWidth(true);
+            var yEnd1 = y1 + h1 + padding;
+            var xEnd1 = x1 + w1 + padding;
             for (var i = 0; i < elems.length; i ++){
                 if (elem !== elems[i]){
-                    //adds padding for minimum space between divs
-                    var padding = 60 + 4*shadowHeight;
-                    var x1 = $(elem).offset().left - padding/2;
-                    var y1 = elemTopCoords[id] - padding/2;
-                    var h1 = $(elem).outerHeight(true);
-                    var w1 = $(elem).outerWidth(true);
-                    var yEnd1 = y1 + h1 + padding;
-                    var xEnd1 = x1 + w1 + padding;
                     var x2 = $(elems[i]).offset().left;
                     var y2 = elemTopCoords[i];
                     var h2 = $(elems[i]).outerHeight(true);
@@ -278,8 +281,8 @@
         })();
 
         window.onload = function(){
-            elems = document.getElementsByClassName("content");
-            initiate();
+            //initiate
+            moveNewDivs();
         }
 
     </script>
