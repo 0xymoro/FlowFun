@@ -81,7 +81,9 @@
                 top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
                 left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
             });
-            //Problem with undefined elem
+            //check if elem exists (fix for deleted element)
+            if (elems.indexOf(elem) == -1) return;
+            //log the index into array
             elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
             if (collide(elem)){
                 //move it out of the way first before trying to display again
@@ -115,8 +117,11 @@
                         })
 
                         //delete element and its div, update elemTopCoords
-                        //elemTopCoords.splice(elems.indexOf(elem), 1); prob colliding?
+                        //elemTopCoords.splice(elems.indexOf(elem), 1); 
+                        //console.log(elemTopCoords);
                         //$(elem).remove();
+                        //console.log(elems);
+                        //console.log(" ");
 
                         completedCount ++;
                         //if completed is 6 (10-4) less than total posts, loadMore
@@ -147,7 +152,6 @@
             //elems = document.getElementsByClassName("content"); 
             elems = objToArray($(".content"));
             (function iterate(i) {
-                console.log(i);
                 setTimeout(function () {
                     loop(elems[i]);
                     if (i < elems.length-1) iterate(i+1);
