@@ -104,7 +104,7 @@
                     'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
                 });
                 //animate
-                $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
+                $(elem).stop(true, true).animate({top: -($(elem).outerHeight(true) + 4*shadowHeight)}, {
                     duration:($(window).height()+$(elem).height())*5,
                     easing: "linear",
                     step: function(){
@@ -212,10 +212,7 @@
             }
         });
 
-        //Pause.js                                   |
-        //TODO fix moving faster on pause (solution? v)
-        //http://stackoverflow.com/questions/6508796/jquery-pause-resume-on-hover
-        //later make display nicer and have pause/highlight
+        //Pause.js                                   
         (function() {
             var $ = jQuery,
                 pauseId = 'jQuery.pause',
