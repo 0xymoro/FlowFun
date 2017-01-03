@@ -81,8 +81,10 @@
                 top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
                 left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
             });
-            //check if elem exists (fix for deleted element)
-            if (elems.indexOf(elem) == -1) return;
+
+            //check if elem exists (fix for deleted element, doesn't quite work)
+            //if (elems.indexOf(elem) == -1) return;
+
             //log the index into array
             elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
             if (collide(elem)){
