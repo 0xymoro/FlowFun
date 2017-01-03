@@ -68,187 +68,227 @@
 
     <script>
         const shadowHeight = 20;
-        window.onload = function(){
-            var elems = document.getElementsByClassName("content");
-            var elemTopCoords = [];
-            function loop(elem, id) {
-                var r = Math.floor(Math.random()*128)+128;
-                var g = Math.floor(Math.random()*128)+128;
-                var b = Math.floor(Math.random()*128)+128;
-                //set position before animation
-                $(elem).css({
-                    top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
-                    left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
-                });
-                elemTopCoords[id] = $(elem).offset().top;
-                if (collide(elem, id)){
-                    //move it out of the way first before trying to display again
-                    $(elem).css({
-                        left: -$(elem).width() * 2,
-                    })
-                    setTimeout(function() {
-                        loop(elem, id);
-                    }, 2000)
-                }
-                else {
-                    //add box shadow
-                    $(elem).css({
-                        'background': 'rgba('+r+', '+g+', '+b+', 0.5)',
-                        '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
-                        'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
-                    });
-                    //animate
-                    $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
-                        duration:($(window).height()+$(elem).height())*20,
-                        easing: "linear",
-                        step: function(){
-                            //records value
-                            elemTopCoords[id] = $(elem).offset().top;
-                        },
-                        complete: function(){
-                            //records value
-                            elemTopCoords[id] = $(elem).offset().top;
-                            //delay respawn so every arrangement is new
-                            setTimeout(function () {
-                                loop(elem, id);
-                            }, Math.random() * 2000 + 1000)
-                        }
-                    });
-
-
-                }
-            }
-            function collide(elem, id){
-                if ($(elem).offset().left == 0) {
-                    return false;
-                }
-                for (var i = 0; i < elems.length; i ++){
-                    if (elem !== elems[i]){
-                        //adds padding for minimum space between divs
-                        var padding = 60 + 4*shadowHeight;
-                        var x1 = $(elem).offset().left - padding/2;
-                        var y1 = elemTopCoords[id] - padding/2;
-                        var h1 = $(elem).outerHeight(true);
-                        var w1 = $(elem).outerWidth(true);
-                        var yEnd1 = y1 + h1 + padding;
-                        var xEnd1 = x1 + w1 + padding;
-                        var x2 = $(elems[i]).offset().left;
-                        var y2 = elemTopCoords[i];
-                        var h2 = $(elems[i]).outerHeight(true);
-                        var w2 = $(elems[i]).outerWidth(true);
-                        var yEnd2 = y2 + h2;
-                        var xEnd2 = x2 + w2;
-
-                        if (x1 <= xEnd2 && xEnd1 >= x2 && 
-                            y1 <= yEnd2 && yEnd1 >= y2){
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-
-
-
-            function initiate() {
-                loop(elems[0], 0);
-                (function iterate(i) {
-                    setTimeout(function () {
-                        loop(elems[i], i);
-                        if (--i) iterate(i);
-                    }, Math.random() * 2000 + 1000)
-                })(elems.length - 1);
-            }
-
-
-            //Pause/resume animation on page visibility
-            $(document).on({
-                'hide': function() {
-                    console.log("Paused");
-                    for (var i = 0; i < elems.length; i ++){
-                        $(elems[i]).pause();
-                    }
-                },
-                'show': function() {
-                    for (var i = 0; i < elems.length; i ++){
-                        $(elems[i]).resume();
-                    }
-                }
+        var apiLoadMore;
+        var elems;
+        var elemTopCoords = [];
+        var completedCount = 0;
+        function loop(elem) {
+            var r = Math.floor(Math.random()*128)+128;
+            var g = Math.floor(Math.random()*128)+128;
+            var b = Math.floor(Math.random()*128)+128;
+            //set position before animation
+            $(elem).css({
+                top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
+                left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
             });
 
-            //Pause.js
-            (function() {
-                var $ = jQuery,
-                    pauseId = 'jQuery.pause',
-                    uuid = 1,
-                    oldAnimate = $.fn.animate,
-                    anims = {};
+            //check if elem exists (fix for deleted element, doesn't quite work)
+            //if (elems.indexOf(elem) == -1) return;
 
-                function now() { return new Date().getTime(); }
+            //log the index into array
+            elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+            if (collide(elem)){
+                //move it out of the way first before trying to display again
+                $(elem).css({
+                    left: -$(elem).width() * 2,
+                })
+                setTimeout(function() {
+                    loop(elem);
+                }, Math.random() * 1000)
+            }
+            else {
+                //add box shadow
+                $(elem).css({
+                    'background': 'rgba('+r+', '+g+', '+b+', 0.5)',
+                    '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
+                    'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
+                });
+                //animate
+                $(elem).stop(true, true).animate({top: "-=" + ($("#containsfloats").height() + $(elem).outerHeight(true) + 4*shadowHeight)}, {
+                    duration:($(window).height()+$(elem).height())*5,
+                    easing: "linear",
+                    step: function(){
+                        //records value
+                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+                    },
+                    complete: function(){          
+                        //records value
+                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+                        $(elem).css({
+                            left: -$(elem).width() * 2,
+                        })
 
-                $.fn.animate = function(prop, speed, easing, callback) {
-                    var optall = $.speed(speed, easing, callback);
-                    optall.complete = optall.old; // unwrap callback
-                    return this.each(function() {
-                        // check pauseId
-                        if (! this[pauseId])
-                            this[pauseId] = uuid++;
-                        // start animation
-                        var opt = $.extend({}, optall);
-                        oldAnimate.apply($(this), [prop, $.extend({}, opt)]);
-                        // store data
-                        anims[this[pauseId]] = {
-                            run: true,
-                            prop: prop,
-                            opt: opt,
-                            start: now(),
-                            done: 0
-                        };
-                    });
-                };
+                        //delete element and its div, update elemTopCoords
+                        //elemTopCoords.splice(elems.indexOf(elem), 1); 
+                        //console.log(elemTopCoords);
+                        //$(elem).remove();
+                        //console.log(elems);
+                        //console.log(" ");
 
-                $.fn.pause = function() {
-                    return this.each(function() {
-                        // check pauseId
-                        if (! this[pauseId])
-                            this[pauseId] = uuid++;
-                        // fetch data
-                        var data = anims[this[pauseId]];
-                        if (data && data.run) {
-                            //data.done = now() - data.start;
-                            data.done += now() - data.start;
-                            if (data.done > data.opt.duration) {
-                                // remove stale entry
-                                delete anims[this[pauseId]];
-                            } else {
-                                // pause animation
-                                $(this).stop();
-                                data.run = false;
-                            }
+                        completedCount ++;
+                        //if completed is 6 (10-4) less than total posts, loadMore
+                        if (completedCount % 10 == 4){
+                            apiLoadMore.loadMore();
                         }
-                    });
-                };
+                    }
+                });
 
-                $.fn.resume = function() {
-                    return this.each(function() {
-                        // check pauseId
-                        if (! this[pauseId])
-                            this[pauseId] = uuid++;
-                        // fetch data
-                        var data = anims[this[pauseId]];
-                        if (data && ! data.run) {
-                            // resume animation
-                            data.opt.duration -= data.done;
-                            data.done = 0;
-                            data.run = true;
-                            data.start = now();
-                            oldAnimate.apply($(this), [data.prop, $.extend({}, data.opt)]);
+
+            }
+        }
+
+        //from Jason Arnello on TeamTreehouse
+        function objToArray (obj) {
+            var values = [];
+
+            obj.each (function() {
+                values.push($(this));
+            });
+
+            return values;
+        }
+
+        //adding new divs to existing moving ones on loadMore
+        //note: 9gag loadmore always gets 10 more posts
+        function moveNewDivs(){
+            //elems = document.getElementsByClassName("content"); 
+            elems = objToArray($(".content"));
+            (function iterate(i) {
+                setTimeout(function () {
+                    loop(elems[i]);
+                    if (i < elems.length-1) iterate(i+1);
+                }, Math.random() * 1000)
+            })(elems.length - 10);
+
+        }
+
+
+        function collide(elem){
+            //adds padding for minimum space between divs
+            var padding = 60 + 4*shadowHeight;
+            var x1 = $(elem).offset().left - padding/2;
+            var y1 = elemTopCoords[elems.indexOf(elem)] - padding/2;
+            var h1 = $(elem).outerHeight(true);
+            var w1 = $(elem).outerWidth(true);
+            var yEnd1 = y1 + h1 + padding;
+            var xEnd1 = x1 + w1 + padding;
+            for (var i = 0; i < elems.length; i ++){
+                if (elem !== elems[i]){
+                    var x2 = $(elems[i]).offset().left;
+                    var y2 = elemTopCoords[i];
+                    var h2 = $(elems[i]).outerHeight(true);
+                    var w2 = $(elems[i]).outerWidth(true);
+                    var yEnd2 = y2 + h2;
+                    var xEnd2 = x2 + w2;
+
+                    if (x1 <= xEnd2 && xEnd1 >= x2 && 
+                        y1 <= yEnd2 && yEnd1 >= y2){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function pauseAll(){
+            for (var i = 0; i < elems.length; i ++){
+                $(elems[i]).pause();
+            }
+        }
+
+        function resumeAll(){
+            for (var i = 0; i < elems.length; i ++){
+                $(elems[i]).resume();
+            }
+        }
+
+        //Pause/resume animation on page visibility
+        $(document).on({
+            'hide': function() {
+                pauseAll();
+            },
+            'show': function() {
+                resumeAll();
+            }
+        });
+
+        //Pause.js                                   |
+        //TODO fix moving faster on pause (solution? v)
+        //http://stackoverflow.com/questions/6508796/jquery-pause-resume-on-hover
+        //later make display nicer and have pause/highlight
+        (function() {
+            var $ = jQuery,
+                pauseId = 'jQuery.pause',
+                uuid = 1,
+                oldAnimate = $.fn.animate,
+                anims = {};
+
+            function now() { return new Date().getTime(); }
+
+            $.fn.animate = function(prop, speed, easing, callback) {
+                var optall = $.speed(speed, easing, callback);
+                optall.complete = optall.old; // unwrap callback
+                return this.each(function() {
+                    // check pauseId
+                    if (! this[pauseId])
+                        this[pauseId] = uuid++;
+                    // start animation
+                    var opt = $.extend({}, optall);
+                    oldAnimate.apply($(this), [prop, $.extend({}, opt)]);
+                    // store data
+                    anims[this[pauseId]] = {
+                        run: true,
+                        prop: prop,
+                        opt: opt,
+                        start: now(),
+                        done: 0
+                    };
+                });
+            };
+
+            $.fn.pause = function() {
+                return this.each(function() {
+                    // check pauseId
+                    if (! this[pauseId])
+                        this[pauseId] = uuid++;
+                    // fetch data
+                    var data = anims[this[pauseId]];
+                    if (data && data.run) {
+                        data.done = now() - data.start;
+                        if (data.done > data.opt.duration) {
+                            // remove stale entry
+                            delete anims[this[pauseId]];
+                        } else {
+                            // pause animation
+                            $(this).stop();
+                            data.run = false;
                         }
-                    });
-                };
-            })();
+                    }
+                });
+            };
 
-            initiate();
+            $.fn.resume = function() {
+                return this.each(function() {
+                    // check pauseId
+                    if (! this[pauseId])
+                        this[pauseId] = uuid++;
+                    // fetch data
+                    var data = anims[this[pauseId]];
+                    if (data && ! data.run) {
+                        // resume animation
+                        data.opt.duration -= data.done;
+                        data.done = 0;
+                        data.run = true;
+                        data.start = now();
+                        oldAnimate.apply($(this), [data.prop, $.extend({}, data.opt)]);
+                    }
+                });
+            };
+        })();
+
+        window.onload = function(){
+            //initiate
+            moveNewDivs();
         }
 
     </script>

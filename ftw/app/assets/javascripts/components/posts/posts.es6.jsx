@@ -1,11 +1,17 @@
+
 class PostsWrapper extends React.Component {
   constructor(props){
     super(props);
+    apiLoadMore = this;
 
     this.state = {
       posts: props.posts
     };
   }
+
+
+
+
   loadMore(){
     let posts = this.state.posts;
     let lastPost = posts[posts.length - 1];
@@ -19,6 +25,7 @@ class PostsWrapper extends React.Component {
         this.setState({
           posts: this.state.posts.concat(response.posts)
         })
+        moveNewDivs();
       }
     })
     console.log("success");
@@ -32,7 +39,7 @@ class PostsWrapper extends React.Component {
       return `/${section}/${type}`
     }
 
-    return '/hot'
+    return 'funny/hot'
   }
 
   render() {
@@ -45,16 +52,20 @@ class PostsWrapper extends React.Component {
         })}
         {this.loadMore.bind(this)}
 
+
         <div className="load-more">
           <a className="btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>Load more</a>
         </div>
       </div>
     );
   }
+
+
+
 }
 
 PostsWrapper.defaultProps = {
-  section: 'hot'
+  section: 'funny/hot'
 }
 
 PostsWrapper.propTypes = {

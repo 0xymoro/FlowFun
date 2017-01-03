@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     if params[:section].present?
       "#{params[:section]}/#{params[:type]}"
     else
-      'hot'
+      'funny/hot'
     end
   end
 end
