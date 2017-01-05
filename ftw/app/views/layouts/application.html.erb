@@ -15,13 +15,6 @@
             margin: 0;
             background: -webkit-gradient(linear, left top, left bottom, from(white), to(#d5fff9)) fixed;
         }
-        #containsfloats{
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            position: fixed;
-        }
         .content{
             position: absolute;
             height: auto;
@@ -67,6 +60,7 @@
     </div>
 
     <script>
+        const showSpeed = 17;
         const shadowHeight = 20;
         var apiLoadMore;
         var elems;
@@ -78,15 +72,13 @@
             var b = Math.floor(Math.random()*128)+128;
             //set position before animation
             $(elem).css({
-                top: $("#containsfloats").outerHeight(true) + 2*shadowHeight,
+                top: $(window).height() + 2*shadowHeight,
                 left: ($(window).width() - $(elem).outerWidth(true) - 2*shadowHeight) * Math.random() + shadowHeight
             });
 
-            //check if elem exists (fix for deleted element, doesn't quite work)
-            //if (elems.indexOf(elem) == -1) return;
-
             //log the index into array
-            elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+            elemTopCoords[myIndexOf(elem)] = $(elem).offset().top;
+
             if (collide(elem)){
                 //move it out of the way first before trying to display again
                 $(elem).css({
@@ -94,7 +86,7 @@
                 })
                 setTimeout(function() {
                     loop(elem);
-                }, Math.random() * 1000)
+                }, Math.random() * 200)
             }
             else {
                 //add box shadow
@@ -103,56 +95,64 @@
                     '-webkit-box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
                     'box-shadow': '0 0 '+shadowHeight+'px '+shadowHeight+'px rgba('+r+', '+g+', '+b+', 0.5)',
                 });
+
                 //animate
                 $(elem).stop(true, true).animate({top: -($(elem).outerHeight(true) + 4*shadowHeight)}, {
-                    duration:($(window).height()+$(elem).height())*5,
+                    duration:($(window).height()+$(elem).height())*showSpeed,
                     easing: "linear",
                     step: function(){
                         //records value
-                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+                        elemTopCoords[myIndexOf(elem)] = $(elem).offset().top;
                     },
                     complete: function(){          
                         //records value
-                        elemTopCoords[elems.indexOf(elem)] = $(elem).offset().top;
+                        elemTopCoords[myIndexOf(elem)] = $(elem).offset().top;
+                        //move out of the way
                         $(elem).css({
                             left: -$(elem).width() * 2,
                         })
 
-                        //delete element and its div, update elemTopCoords
-                        //elemTopCoords.splice(elems.indexOf(elem), 1); 
-                        //console.log(elemTopCoords);
-                        //$(elem).remove();
-                        //console.log(elems);
-                        //console.log(" ");
-
                         completedCount ++;
-                        //if completed is 6 (10-4) less than total posts, loadMore
-                        if (completedCount % 10 == 4){
+                        //loadMore by multiples of 10 (offset by 1)
+                        if (completedCount % 10 == 1){
                             apiLoadMore.loadMore();
                         }
                     }
                 });
-
-
             }
+        }
+
+        //gets index
+        function myIndexOf(elem) {    
+            for (var i = 0; i < elems.length; i++) {
+                if ($(elems[i]).text() == $(elem).text()) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         //from Jason Arnello on TeamTreehouse
         function objToArray (obj) {
             var values = [];
-
             obj.each (function() {
                 values.push($(this));
             });
-
             return values;
         }
+
 
         //adding new divs to existing moving ones on loadMore
         //note: 9gag loadmore always gets 10 more posts
         function moveNewDivs(){
-            //elems = document.getElementsByClassName("content"); 
             elems = objToArray($(".content"));
+
+            //populate initial top coordinate array
+            for (var index = elems.length - 10; index < elems.length-1; index++){
+                elemTopCoords[index] = $(window).height();
+            }
+
+            //loop through new post divs
             (function iterate(i) {
                 setTimeout(function () {
                     loop(elems[i]);
@@ -167,7 +167,7 @@
             //adds padding for minimum space between divs
             var padding = 60 + 4*shadowHeight;
             var x1 = $(elem).offset().left - padding/2;
-            var y1 = elemTopCoords[elems.indexOf(elem)] - padding/2;
+            var y1 = elemTopCoords[myIndexOf(elem)] - padding/2;
             var h1 = $(elem).outerHeight(true);
             var w1 = $(elem).outerWidth(true);
             var yEnd1 = y1 + h1 + padding;
@@ -212,7 +212,7 @@
             }
         });
 
-        //Pause.js                                   
+        //Pause.js from https://github.com/tobia/Pause                                   
         (function() {
             var $ = jQuery,
                 pauseId = 'jQuery.pause',

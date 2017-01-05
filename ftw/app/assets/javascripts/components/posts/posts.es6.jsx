@@ -28,7 +28,6 @@ class PostsWrapper extends React.Component {
         moveNewDivs();
       }
     })
-    console.log("success");
   }
 
   paginationURL(){
@@ -53,9 +52,12 @@ class PostsWrapper extends React.Component {
         {this.loadMore.bind(this)}
 
 
+        {/*load more button for debugging
         <div className="load-more">
           <a className="btn btn-primary btn-block" onClick={this.loadMore.bind(this)}>Load more</a>
         </div>
+        */}
+
       </div>
     );
   }
