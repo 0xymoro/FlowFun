@@ -5,7 +5,7 @@ class Post extends React.Component {
 
   titlePost(){
     let titlePost = (
-      <h5><strong>{this.props.post.title}</strong></h5>
+      <p><strong>{this.props.post.title}</strong></p>
 
       /* For links on the title; make the links be clickable throughout content box
       <a

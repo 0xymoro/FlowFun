@@ -66,6 +66,7 @@
         var elems;
         var elemTopCoords = [];
         var completedCount = 0;
+        var paused = false;
         function loop(elem) {
             var r = Math.floor(Math.random()*128)+128;
             var g = Math.floor(Math.random()*128)+128;
@@ -79,7 +80,7 @@
             //log the index into array
             elemTopCoords[myIndexOf(elem)] = $(elem).offset().top;
 
-            if (collide(elem)){
+            if (collide(elem) || paused){
                 //move it out of the way first before trying to display again
                 $(elem).css({
                     left: -$(elem).width() * 2,
@@ -194,21 +195,37 @@
             for (var i = 0; i < elems.length; i ++){
                 $(elems[i]).pause();
             }
+            paused = true;
         }
 
         function resumeAll(){
             for (var i = 0; i < elems.length; i ++){
                 $(elems[i]).resume();
             }
+            paused = false;
         }
 
         //Pause/resume animation on page visibility
         $(document).on({
             'hide': function() {
-                pauseAll();
+                if (!paused){
+                    pauseAll();
+                }
             },
             'show': function() {
+                if (paused){
+                    resumeAll();
+                }
+            }
+        });
+
+        //if clicked, pause/resume
+        $("#containsfloats").click(function(){
+            if (paused){
                 resumeAll();
+            }
+            else{
+                pauseAll();
             }
         });
 
