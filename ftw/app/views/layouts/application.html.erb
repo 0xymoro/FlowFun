@@ -174,7 +174,7 @@
             var yEnd1 = y1 + h1 + padding;
             var xEnd1 = x1 + w1 + padding;
             for (var i = 0; i < elems.length; i ++){
-                if (elem !== elems[i]){
+                if ($(elems[i]).text() != $(elem).text()){
                     var x2 = $(elems[i]).offset().left;
                     var y2 = elemTopCoords[i];
                     var h2 = $(elems[i]).outerHeight(true);
