@@ -29,7 +29,7 @@ class Post extends React.Component {
 
     if (video) {
       const videoPlayer = (
-        <video poster={video.poster} autoPlay="true" loop="true">
+        <video poster={video.poster} autoPlay loop muted>
           <source src={video.mp4} type="video/mp4" />
           <source src={video.webm} type="video/webm" />
         </video>

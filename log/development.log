@@ -1055,3 +1055,613 @@ Completed 200 OK in 568ms (Views: 458.8ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 228ms (Views: 166.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-06-24 00:39:49 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 689ms (Views: 389.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:40:03 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 261ms (Views: 48.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:42:07 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 312ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:45:51 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 294ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aOBqyRv" for ::1 at 2017-06-24 00:46:18 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aOBqyRv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 230ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aB8KY8P" for ::1 at 2017-06-24 00:46:47 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aB8KY8P", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 244ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=ayx5nyY" for ::1 at 2017-06-24 00:47:07 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"ayx5nyY", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 277ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aeeN0GQ" for ::1 at 2017-06-24 00:47:42 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aeeN0GQ", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 250ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:49:15 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 304ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aOBqyRv" for ::1 at 2017-06-24 00:49:33 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aOBqyRv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 348ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:52:23 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 348ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:55:20 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 672ms (Views: 406.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 00:55:43 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 286ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:03:22 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 2053ms (Views: 1774.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:05:40 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 2115ms (Views: 1804.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aP9vDxV" for ::1 at 2017-06-24 01:05:59 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aP9vDxV", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 248ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:06:30 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 1060ms (Views: 818.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:09:46 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 2177ms (Views: 1879.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:10:00 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 294ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=a24Nm81" for ::1 at 2017-06-24 01:10:20 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"a24Nm81", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 238ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:12:41 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 2028ms (Views: 1753.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=anjYN4L" for ::1 at 2017-06-24 01:13:01 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"anjYN4L", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 254ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:14:14 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 2030ms (Views: 1744.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:17:36 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 2040ms (Views: 1751.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:18:35 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 2085ms (Views: 1796.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:19:32 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 2037ms (Views: 1776.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:20:21 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 2023ms (Views: 1745.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:22:29 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 670ms (Views: 391.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:23:56 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 2090ms (Views: 1809.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:24:31 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 2118ms (Views: 1835.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aDz0o89" for ::1 at 2017-06-24 01:24:52 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aDz0o89", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 275ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:25:49 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 2048ms (Views: 1759.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:27:07 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 2038ms (Views: 1762.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:28:02 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 1986ms (Views: 1778.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:33:04 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 2067ms (Views: 1770.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aeeN3dv" for ::1 at 2017-06-24 01:33:26 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aeeN3dv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 256ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:34:04 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 2187ms (Views: 1817.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aeeN3dv" for ::1 at 2017-06-24 01:34:25 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aeeN3dv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 250ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=a9AdMbD" for ::1 at 2017-06-24 01:34:49 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"a9AdMbD", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 309ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:39:11 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 1973ms (Views: 1699.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=a9AdLLL" for ::1 at 2017-06-24 01:39:36 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"a9AdLLL", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 276ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aB8KYrD" for ::1 at 2017-06-24 01:39:56 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aB8KYrD", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 249ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aMA1GA6" for ::1 at 2017-06-24 01:40:20 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aMA1GA6", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 287ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:43:47 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 704ms (Views: 421.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=abzXnev" for ::1 at 2017-06-24 01:44:12 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"abzXnev", "type"=>"hot", "section"=>"funny"}
+Completed 500 Internal Server Error in 225ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+  
+app/controllers/pages_controller.rb:3:in `index'
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.4ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (51.4ms)
+Started GET "/" for ::1 at 2017-06-24 01:46:22 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 687ms (Views: 410.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=abzXnev" for ::1 at 2017-06-24 01:46:41 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"abzXnev", "type"=>"hot", "section"=>"funny"}
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+  
+app/controllers/pages_controller.rb:3:in `index'
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.1ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (53.3ms)
+Started GET "/" for ::1 at 2017-06-24 01:48:11 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 726ms (Views: 432.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=abzXnev" for ::1 at 2017-06-24 01:48:31 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"abzXnev", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 270ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aY4N90O" for ::1 at 2017-06-24 01:49:07 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aY4N90O", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 273ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aL8R7Lv" for ::1 at 2017-06-24 01:49:37 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aL8R7Lv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 277ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 01:51:35 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 674ms (Views: 391.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aeejONO" for ::1 at 2017-06-24 01:52:10 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aeejONO", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 271ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=aADRqrL" for ::1 at 2017-06-24 01:52:43 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aADRqrL", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 286ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=av7pxd5" for ::1 at 2017-06-24 01:53:16 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"av7pxd5", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 255ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 02:08:09 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Started GET "/" for ::1 at 2017-06-24 02:08:12 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4216ms (Views: 3942.3ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 656ms (Views: 337.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/audio/background.mp3" for ::1 at 2017-06-24 02:08:13 -0400
+Processing by PagesController#index as 
+  Parameters: {"type"=>"background", "section"=>"audio"}
+Completed 406 Not Acceptable in 193ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/pages_controller.rb:5:in `index'
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Jerry/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+Started GET "/funny/hot?page=aZgbd13" for ::1 at 2017-06-24 02:08:30 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"aZgbd13", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 290ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 02:09:49 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 674ms (Views: 384.7ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/audio/background.mp3"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/" for ::1 at 2017-06-24 02:13:08 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 667ms (Views: 363.6ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/audio/background.mp3"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/audio/background.mp3"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/" for ::1 at 2017-06-24 02:24:48 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.8ms)
+Started GET "/" for ::1 at 2017-06-24 02:24:51 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4125ms (Views: 3849.9ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1177ms (Views: 988.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/audio/background.mp3"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.0.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.0.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/" for ::1 at 2017-06-24 02:25:21 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 586ms (Views: 392.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-24 02:27:08 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 739ms (Views: 405.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funny/hot?page=am2NEbv" for ::1 at 2017-06-24 02:27:26 -0400
+Processing by PagesController#index as JSON
+  Parameters: {"page"=>"am2NEbv", "type"=>"hot", "section"=>"funny"}
+Completed 200 OK in 251ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+

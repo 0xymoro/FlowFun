@@ -104,6 +104,8 @@
 
   <body>
 
+    <%= audio_tag "background.mp3", class: "audio-play" %>
+
     <div id="info">
         <p>FlowFun: an UI Experiment<br/>
         Built by Jerry Meng and King Alandy Dy<br/>
@@ -175,6 +177,7 @@
                         if (completedCount % 10 == 1){
                             apiLoadMore.loadMore();
                         }
+                        $(elem).remove();
                     }
                 });
             }
@@ -365,7 +368,10 @@
         window.onload = function(){
             //initiate
             moveNewDivs();
+            //play music
+            $(".audio-play")[0].play();
         }
+
 
     </script>
   </body>
