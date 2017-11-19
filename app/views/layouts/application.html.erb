@@ -186,7 +186,7 @@
         //gets index
         function myIndexOf(elem) {    
             for (var i = 0; i < elems.length; i++) {
-                if ($(elems[i]).text() == $(elem).text()) {
+                if ($(elems[i]).is($(elem))) {
                     return i;
                 }
             }
@@ -234,19 +234,20 @@
             var yEnd1 = y1 + h1 + padding;
             var xEnd1 = x1 + w1 + padding;
             for (var i = 0; i < elems.length; i ++){
-                if ($(elems[i]).text() != $(elem).text()){
+                if (myIndexOf(elem) != i){
                     var x2 = $(elems[i]).offset().left;
                     var y2 = elemTopCoords[i];
                     var h2 = $(elems[i]).outerHeight(true);
                     var w2 = $(elems[i]).outerWidth(true);
                     var yEnd2 = y2 + h2;
                     var xEnd2 = x2 + w2;
-
                     if (x1 <= xEnd2 && xEnd1 >= x2 && 
                         y1 <= yEnd2 && yEnd1 >= y2){
+                        console.log("Collided");
                         return true;
                     }
                 }
+                
             }
             return false;
         }
