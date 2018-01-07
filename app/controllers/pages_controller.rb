@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @posts = NineGag.index(nine_gag_url, params[:page])
+    @posts = NineGag.index(nine_gag_url, params[:page]) #Broken API
 
     respond_to do |format|
       format.html
